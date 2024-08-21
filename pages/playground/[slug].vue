@@ -17,6 +17,13 @@ if (!item.value) {
 
 const playgroundItem = ref(item.value);
 
+defineOgImageComponent('Main', {
+	title: playgroundItem.value?.title,
+	description: playgroundItem.value?.description,
+	headline: `Playground • ${playgroundItem.value?.title}`,
+});
+
+
 onMounted(() => {
 	playgroundItem.value?.module.then((module) => {
 		module.default();

@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import { PlaygroundItems } from '~/utils/playground';
+import { config } from '~/config';
+
+defineOgImageComponent('Main', {
+	title: config.name,
+	description: `Check out the playground items available on ${config.name}'s website!`,
+	headline: `Playground`,
+});
 </script>
 
 <template>
