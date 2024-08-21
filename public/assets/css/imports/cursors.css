@@ -1,0 +1,32 @@
+/* Normal cursor */
+body,
+button {
+	cursor: url('/assets/images/cursors/normal-select.cur'), default;
+}
+
+/* Text cursor */
+textarea,
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='url'],
+input[type='tel'],
+input[type='number'],
+input[type='search'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='color'],
+input[type='range'],
+input[type='file'],
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+input[type='radio'],
+input[type='checkbox'],
+select {
+	cursor: url('/assets/images/cursors/text-select.cur'), text;
+}

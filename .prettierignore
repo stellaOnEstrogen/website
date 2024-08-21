@@ -1,0 +1,15 @@
+node_modules
+*.md
+*.json
+*.lock
+*.html
+*.scss
+*.map
+*.yml
+*.yaml
+*.log
+*.d.ts
+.github
+.output
+.nuxt
+.husky
