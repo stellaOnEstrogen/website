@@ -55,7 +55,7 @@ const pronouns = makePronouns(config.pronouns, {
 	</h2>
 	<div
 		class="masonry-grid"
-		style="margin-top: 1rem; margin-bottom: -5em;"
+		style="margin-top: 1rem;"
 		v-if="pics.length > 0 || picturesPending"
 	>
 		<div v-for="(image, index) in pics" :key="index" class="masonry-item">
@@ -66,9 +66,6 @@ const pronouns = makePronouns(config.pronouns, {
 					class="rounded-lg w-full object-cover"
 				/>
 			</a>
-		</div>
-		<div v-if="picturesPending" class="masonry-item">
-			<p>Loading pictures...</p>
 		</div>
 	</div>
 

@@ -23,8 +23,14 @@ defineOgImageComponent('Main', {
 	headline: `Playground • ${playgroundItem.value?.title}`,
 });
 
-
 onMounted(() => {
+	const link = document.getElementById('front-link-playground');
+
+	if (link) {
+		link.setAttribute('href', '/');
+		link.textContent = 'Home';
+	}
+
 	playgroundItem.value?.module.then((module) => {
 		module.default();
 		loadedCode.value = true;

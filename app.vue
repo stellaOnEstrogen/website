@@ -223,6 +223,7 @@ function initializeSakura(canvas: HTMLCanvasElement) {
 						v-for="(link, index) in config.frontLinks"
 						:key="index"
 						:href="link.href"
+						:id="`front-link-${link.name.toLowerCase().replace(' ', '-')}`"
 						class="text-blue-600"
 						>{{ link.name }}</a
 					>

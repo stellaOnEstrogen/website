@@ -7,6 +7,15 @@ defineOgImageComponent('Main', {
 	description: `Check out the playground items available on ${config.name}'s website!`,
 	headline: `Playground`,
 });
+
+onMounted(() => {
+	const link = document.getElementById("front-link-playground");
+
+	if (link) {
+		link.setAttribute("href", "/");
+		link.textContent = "Home";
+	}
+});
 </script>
 
 <template>
@@ -18,7 +27,7 @@ defineOgImageComponent('Main', {
 			Playground
 		</h1>
 		<div class="mt-4">
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<div
 					v-for="(item, index) in PlaygroundItems"
 					:key="index"
