@@ -6,6 +6,31 @@ export default function start() {
     mergeSortVisualization();
 }
 
+function animateArray(
+    ctx: CanvasRenderingContext2D | null,
+    canvas: HTMLCanvasElement,
+    array: number[],
+    arraySize: number,
+    highlightIndices: number[] = [],
+    delay: number = 100
+) {
+
+	if (!ctx) {
+		throw new Error('Could not get canvas context');
+	}
+
+    return new Promise<void>((resolve) => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        array.forEach((value, index) => {
+            ctx.fillStyle = highlightIndices.includes(index) ? 'red' : 'black';
+            ctx.fillRect(index * (canvas.width / arraySize), canvas.height - value * 2, canvas.width / arraySize, value * 2);
+        });
+
+        setTimeout(resolve, delay);
+    });
+}
+
 export function bubbleSortVisualization() {
     const arraySize = 30;
     const playground = document.getElementById('playground-code') as HTMLElement;
@@ -35,20 +60,7 @@ export function bubbleSortVisualization() {
     let i = 0;
     let j = 0;
 
-    function drawArray() {
-        if (!ctx) {
-            throw new Error('Could not get canvas context');
-        }
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        array.forEach((value, index) => {
-            ctx.fillStyle = index === j || index === j + 1 ? 'red' : 'black';
-            ctx.fillRect(index * (canvas.width / arraySize), canvas.height - value * 2, canvas.width / arraySize, value * 2);
-        });
-    }
-
-    function bubbleSortStep() {
+    async function bubbleSortStep() {
         if (i < array.length) {
             if (j < array.length - i - 1) {
                 if (array[j] > array[j + 1]) {
@@ -60,14 +72,14 @@ export function bubbleSortVisualization() {
                 i++;
             }
         } else {
-            clearInterval(intervalId);
+            return;
         }
 
-        drawArray();
+        await animateArray(ctx, canvas, array, arraySize, [j, j + 1], 50);
+        bubbleSortStep();
     }
 
-    drawArray();
-    const intervalId = setInterval(bubbleSortStep, 100);
+    animateArray(ctx, canvas, array, arraySize).then(bubbleSortStep);
 }
 
 export function selectionSortVisualization() {
@@ -100,20 +112,7 @@ export function selectionSortVisualization() {
     let j = 0;
     let minIndex = 0;
 
-    function drawArray() {
-		if (!ctx) {
-			throw new Error('Could not get canvas context');
-		}
-		
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        array.forEach((value, index) => {
-            ctx.fillStyle = index === j ? 'red' : index === minIndex ? 'green' : 'black';
-            ctx.fillRect(index * (canvas.width / arraySize), canvas.height - value * 2, canvas.width / arraySize, value * 2);
-        });
-    }
-
-    function selectionSortStep() {
+    async function selectionSortStep() {
         if (i < array.length) {
             if (j < array.length) {
                 if (array[j] < array[minIndex]) {
@@ -127,14 +126,14 @@ export function selectionSortVisualization() {
                 minIndex = i;
             }
         } else {
-            clearInterval(intervalId);
+            return;
         }
 
-        drawArray();
+        await animateArray(ctx, canvas, array, arraySize, [j, minIndex], 50);
+        selectionSortStep();
     }
 
-    drawArray();
-    const intervalId = setInterval(selectionSortStep, 100);
+    animateArray(ctx, canvas, array, arraySize).then(selectionSortStep);
 }
 
 export function insertionSortVisualization() {
@@ -166,20 +165,7 @@ export function insertionSortVisualization() {
     let i = 1;
     let j = i;
 
-    function drawArray() {
-		if (!ctx) {
-			throw new Error('Could not get canvas context');
-		}
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        array.forEach((value, index) => {
-            ctx.fillStyle = index === j ? 'red' : 'black';
-            ctx.fillRect(index * (canvas.width / arraySize), canvas.height - value * 2, canvas.width / arraySize, value * 2);
-        });
-    }
-
-    function insertionSortStep() {
+    async function insertionSortStep() {
         if (i < array.length) {
             if (j > 0 && array[j] < array[j - 1]) {
                 [array[j], array[j - 1]] = [array[j - 1], array[j]];
@@ -189,14 +175,14 @@ export function insertionSortVisualization() {
                 j = i;
             }
         } else {
-            clearInterval(intervalId);
+            return;
         }
 
-        drawArray();
+        await animateArray(ctx, canvas, array, arraySize, [j], 50);
+        insertionSortStep();
     }
 
-    drawArray();
-    const intervalId = setInterval(insertionSortStep, 100);
+    animateArray(ctx, canvas, array, arraySize).then(insertionSortStep);
 }
 
 export function quickSortVisualization() {
@@ -228,30 +214,18 @@ export function quickSortVisualization() {
     let stack: [number, number][] = [[0, array.length - 1]];
     let pivotIndex = 0;
 
-    function drawArray() {
-		if (!ctx) {
-			throw new Error('Could not get canvas context');
-		}
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        array.forEach((value, index) => {
-            ctx.fillStyle = index === pivotIndex ? 'red' : 'black';
-            ctx.fillRect(index * (canvas.width / arraySize), canvas.height - value * 2, canvas.width / arraySize, value * 2);
-        });
-    }
-
-    function quickSortStep() {
+    async function quickSortStep() {
         if (stack.length > 0) {
             const [low, high] = stack.pop()!;
             pivotIndex = partition(low, high);
             if (pivotIndex - 1 > low) stack.push([low, pivotIndex - 1]);
             if (pivotIndex + 1 < high) stack.push([pivotIndex + 1, high]);
         } else {
-            clearInterval(intervalId);
+            return;
         }
 
-        drawArray();
+        await animateArray(ctx, canvas, array, arraySize, [pivotIndex], 50);
+        quickSortStep();
     }
 
     function partition(low: number, high: number): number {
@@ -267,8 +241,7 @@ export function quickSortVisualization() {
         return i;
     }
 
-    drawArray();
-    const intervalId = setInterval(quickSortStep, 100);
+    animateArray(ctx, canvas, array, arraySize).then(quickSortStep);
 }
 
 export function mergeSortVisualization() {
@@ -301,20 +274,7 @@ export function mergeSortVisualization() {
     let currentSize = 1;
     let leftStart = 0;
 
-    function drawArray() {
-		if (!ctx) {
-			throw new Error('Could not get canvas context');
-		}
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        array.forEach((value, index) => {
-            ctx.fillStyle = 'black';
-            ctx.fillRect(index * (canvas.width / arraySize), canvas.height - value * 2, canvas.width / arraySize, value * 2);
-        });
-    }
-
-    function mergeSortStep() {
+    async function mergeSortStep() {
         if (currentSize <= array.length - 1) {
             if (leftStart < array.length - 1) {
                 const mid = Math.min(leftStart + currentSize - 1, array.length - 1);
@@ -326,10 +286,11 @@ export function mergeSortVisualization() {
                 currentSize *= 2;
             }
         } else {
-            clearInterval(intervalId);
+            return;
         }
 
-        drawArray();
+        await animateArray(ctx, canvas, array, arraySize, [], 50);
+        mergeSortStep();
     }
 
     function merge(leftStart: number, mid: number, rightEnd: number) {
@@ -345,19 +306,13 @@ export function mergeSortVisualization() {
             }
         }
 
-        while (i <= mid) {
-            array[k++] = auxArray[i++];
-        }
+        while (i <= mid) array[k++] = auxArray[i++];
+        while (j <= rightEnd) array[k++] = auxArray[j++];
 
-        while (j <= rightEnd) {
-            array[k++] = auxArray[j++];
-        }
-
-        for (let i = leftStart; i <= rightEnd; i++) {
-            auxArray[i] = array[i];
+        for (let index = leftStart; index <= rightEnd; index++) {
+            auxArray[index] = array[index];
         }
     }
 
-    drawArray();
-    const intervalId = setInterval(mergeSortStep, 100);
+    animateArray(ctx, canvas, array, arraySize).then(mergeSortStep);
 }
