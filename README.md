@@ -34,7 +34,13 @@ The website will be available at `http://localhost:3000/`.
 - Add a blog section
 - Add a projects section
 - Add a contact form
-- Add a image intergration
+- ~~Add a image intergration~~ [(Done)](https://github.com/stellaOnEstrogen/image-uploader)
+
+## Uploading Images
+
+To upload images like in the image below, you can use the [image-uploader](https://github.com/stellaOnEstrogen/image-uploader) component I created. It is a simple image uploader that uploads images to a server with an accessible URL.
+
+![image](./.github/assets/images-preview.png)
 
 ## License
 

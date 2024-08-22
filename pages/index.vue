@@ -2,14 +2,25 @@
 import { config } from '~/config';
 import { makePronouns } from '~/utils/sentence';
 
-const { data: picturesData, status: picturesStatus } = await useFetch(
-	`${config.components.images.url}/get-images?return=6`,
-	{
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	},
-);
+const picturesData = ref<any[]>([]);
+const picturesStatus = ref('pending');
+
+if (!config.components.images.enabled) {
+	console.warn('Images are disabled in the config. Skipping fetching images.');
+} else {
+	const { data, pending } = await useFetch(
+		`${config.components.images.url}/api/get-images?by=1&sort=DESC&order=UploadedAt&limit=6`,
+		{
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		}
+	);
+
+	//@ts-ignore
+	picturesData.value = data;
+	picturesStatus.value = pending ? 'pending' : 'done';
+}
 
 defineOgImageComponent('Main', {
 	title: config.name,
@@ -18,6 +29,7 @@ defineOgImageComponent('Main', {
 });
 
 const pics: any = picturesData.value || [];
+
 
 const picturesPending = picturesStatus.value === 'pending';
 
@@ -43,13 +55,13 @@ const pronouns = makePronouns(config.pronouns, {
 	</h2>
 	<div
 		class="masonry-grid"
-		style="margin-top: 1rem"
+		style="margin-top: 1rem; margin-bottom: -5em;"
 		v-if="pics.length > 0 || picturesPending"
 	>
 		<div v-for="(image, index) in pics" :key="index" class="masonry-item">
-			<a :href="`/pics/${image.id}`" target="_blank">
+			<a :href="`${config.components.images.url}/view/${image.Id}`" target="_blank">
 				<img
-					:src="`${config.components.images.url}/view-image?id=${image.id}`"
+					:src="`${config.components.images.url}/view/${image.Id}?raw=true`"
 					:alt="image.caption"
 					class="rounded-lg w-full object-cover"
 				/>
@@ -186,6 +198,11 @@ li a:visited::before {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.image-masonry {
+	/* Hide it */
+	display: none;
 }
 
 .masonry-item img {

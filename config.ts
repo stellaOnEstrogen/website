@@ -26,8 +26,8 @@ export const config: IConfig = {
 	about: `I'm a Full Stack Developer with a passion for vtubers and anime. I'm currently working on a project called VtubersTV, a platform for vtubers by vtubers. (I love CottontailVA)`,
 	components: {
 		images: {
-			enabled: false,
-			url: 'http://localhost:5017/api',
+			enabled: true,
+			url: 'https://i.0x7ffed9b08230.dev',
 		},
 	},
 	contact: {
