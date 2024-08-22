@@ -8,8 +8,9 @@ const picturesStatus = ref('pending');
 if (!config.components.images.enabled) {
 	console.warn('Images are disabled in the config. Skipping fetching images.');
 } else {
+	// https://github.com/stellaOnEstrogen/image-uploader/blob/main/docs/Api/get-media.md
 	const { data, pending } = await useFetch(
-		`${config.components.images.url}/api/get-images?by=1&sort=DESC&order=UploadedAt&limit=6`,
+		`${config.components.images.url}/api/get-media?by=1&sort=DESC&order=UploadedAt&limit=6`,
 		{
 			headers: {
 				'Content-Type': 'application/json',
