@@ -14,12 +14,13 @@ if (!config.components.images.enabled) {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-		}
+		},
 	);
-
 	//@ts-ignore
-	picturesData.value = data;
+	picturesData.value = data.value.filter((image) => !image.ContentType.startsWith('video'));
+	console.log("data", data);
 	picturesStatus.value = pending ? 'pending' : 'done';
+
 }
 
 defineOgImageComponent('Main', {
@@ -29,7 +30,6 @@ defineOgImageComponent('Main', {
 });
 
 const pics: any = picturesData.value || [];
-
 
 const picturesPending = picturesStatus.value === 'pending';
 
@@ -55,11 +55,14 @@ const pronouns = makePronouns(config.pronouns, {
 	</h2>
 	<div
 		class="masonry-grid"
-		style="margin-top: 1rem;"
+		style="margin-top: 1rem"
 		v-if="pics.length > 0 || picturesPending"
 	>
 		<div v-for="(image, index) in pics" :key="index" class="masonry-item">
-			<a :href="`${config.components.images.url}/view/${image.Id}`" target="_blank">
+			<a
+				:href="`${config.components.images.url}/view/${image.Id}`"
+				target="_blank"
+			>
 				<img
 					:src="`${config.components.images.url}/view/${image.Id}?raw=true`"
 					:alt="image.caption"

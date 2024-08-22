@@ -35,7 +35,7 @@ function simplePendulum() {
 		if (!ctx) {
 			throw new Error('Could not get canvas context');
 		}
-		
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         const originX = canvas.width / 2;
