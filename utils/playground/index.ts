@@ -35,4 +35,31 @@ export const PlaygroundItems = [
 		github:
 			'https://github.com/stellaOnEstrogen/website/blob/main/utils/playground/code/physics-simulations.ts',
 	},
+	{
+		title: 'Cellular Automata',
+		slug: 'cellular-automata',
+		description:
+			"Cellular automata are models that simulate the interactions of cells on a grid, often leading to complex patterns. Discover how simple rules can create intricate behaviors.",
+		module: import('./code/cellular-automata'),
+		github:
+			'https://github.com/stellaOnEstrogen/website/blob/main/utils/playground/code/cellular-automata.ts',
+	},
+	{
+		title: 'Data Structures',
+		slug: 'data-structures',
+		description:
+			"Data structures are essential for organizing and managing data efficiently. Learn about different data structures and see how they work.",
+		module: import('./code/data-structures'),
+		github:
+			'https://github.com/stellaOnEstrogen/website/blob/main/utils/playground/code/data-structures.ts',
+	},
+	{
+		title: 'Machine Learning',
+		slug: 'machine-learning',
+		description:
+			"Machine learning is at the core of modern AI. Experiment with various machine learning models and understand how they learn from data.",
+		module: import('./code/machine-learning'),
+		github:
+			'https://github.com/stellaOnEstrogen/website/blob/main/utils/playground/code/machine-learning.ts',
+	},
 ];

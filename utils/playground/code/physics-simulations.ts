@@ -2,6 +2,9 @@ export default function start() {
     simplePendulum();
     doublePendulum();
     springMassSystem();
+    projectileMotion();
+    dampedHarmonicOscillator();
+    waveInterference();
 }
 
 function simplePendulum() {
@@ -322,4 +325,195 @@ function springMassSystem() {
     canvas.addEventListener('mouseup', onMouseUp);
 
     setInterval(drawSpringMass, 1000 / 60);
+}
+
+function projectileMotion() {
+    const playground = document.getElementById('playground-code') as HTMLElement;
+
+    if (!playground) {
+        console.error('Playground element not found');
+        return;
+    }
+
+    const header = document.createElement('h1');
+    header.textContent = 'Projectile Motion';
+    header.classList.add('text-pink-600', 'text-2xl', 'mb-4');
+    playground.appendChild(header);
+
+    const canvas = document.createElement('canvas');
+    canvas.width = 400;
+    canvas.height = 400;
+    playground.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('Could not get canvas context');
+
+    const projectiles: { x: number; y: number; vx: number; vy: number; }[] = [];
+    const gravity = 0.2;
+
+    function drawProjectiles() {
+		if (!ctx) {
+			throw new Error('Could not get canvas context');
+		}
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        projectiles.forEach((p, i) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 10, 0, Math.PI * 2);
+            ctx.fill();
+
+            p.vy += gravity;
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.y > canvas.height) {
+                p.y = canvas.height;
+                p.vy *= -0.8; // bounce
+            }
+
+            if (p.x > canvas.width || p.x < 0 || p.y < 0) {
+                projectiles.splice(i, 1); // remove off-screen projectiles
+            }
+        });
+    }
+
+    function onMouseDown(event: MouseEvent) {
+        const mouseX = event.offsetX;
+        const mouseY = event.offsetY;
+
+        projectiles.push({ x: mouseX, y: mouseY, vx: 3, vy: -7 });
+    }
+
+    canvas.addEventListener('mousedown', onMouseDown);
+
+    setInterval(drawProjectiles, 1000 / 60);
+}
+
+function dampedHarmonicOscillator() {
+    const playground = document.getElementById('playground-code') as HTMLElement;
+
+    if (!playground) {
+        console.error('Playground element not found');
+        return;
+    }
+
+    const header = document.createElement('h1');
+    header.textContent = 'Damped Harmonic Oscillator';
+    header.classList.add('text-pink-600', 'text-2xl', 'mb-4');
+    playground.appendChild(header);
+
+    const canvas = document.createElement('canvas');
+    canvas.width = 400;
+    canvas.height = 400;
+    playground.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('Could not get canvas context');
+
+    const originX = canvas.width / 2;
+    const originY = 50;
+    let springLength = 200;
+    let velocity = 0;
+    let damping = 0.95;
+
+    const dampingSlider = document.createElement('input');
+    dampingSlider.type = 'range';
+    dampingSlider.min = '0.5';
+    dampingSlider.max = '1.0';
+    dampingSlider.step = '0.01';
+    dampingSlider.value = damping.toString();
+    dampingSlider.classList.add('mb-4', 'w-full');
+    playground.appendChild(dampingSlider);
+
+    dampingSlider.addEventListener('input', () => {
+        damping = parseFloat(dampingSlider.value);
+    });
+
+    function drawDampedOscillator() {
+		if (!ctx) {
+			throw new Error('Could not get canvas context');
+		}
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const massY = originY + springLength;
+
+        ctx.beginPath();
+        ctx.moveTo(originX, originY);
+        ctx.lineTo(originX, massY);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(originX, massY, 20, 0, Math.PI * 2);
+        ctx.fill();
+
+        const gravity = 0.1;
+        const k = 0.05; // spring constant
+
+        const acceleration = gravity - k * (springLength - 200);
+        velocity += acceleration;
+        velocity *= damping;
+        springLength += velocity;
+    }
+
+    setInterval(drawDampedOscillator, 1000 / 60);
+}
+
+function waveInterference() {
+    const playground = document.getElementById('playground-code') as HTMLElement;
+
+    if (!playground) {
+        console.error('Playground element not found');
+        return;
+    }
+
+    const header = document.createElement('h1');
+    header.textContent = 'Wave Interference';
+    header.classList.add('text-pink-600', 'text-2xl', 'mb-4');
+    playground.appendChild(header);
+
+    const canvas = document.createElement('canvas');
+    canvas.width = 400;
+    canvas.height = 200;
+    playground.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('Could not get canvas context');
+
+    let time = 0;
+    let frequency = 0.05;
+
+    const frequencySlider = document.createElement('input');
+    frequencySlider.type = 'range';
+    frequencySlider.min = '0.01';
+    frequencySlider.max = '0.1';
+    frequencySlider.value = frequency.toString();
+    frequencySlider.classList.add('mb-4', 'w-full');
+    playground.appendChild(frequencySlider);
+
+    frequencySlider.addEventListener('input', () => {
+        frequency = parseFloat(frequencySlider.value);
+    });
+
+    function drawWaves() {
+		if (!ctx) {
+			throw new Error('Could not get canvas context');
+		}
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.beginPath();
+        for (let x = 0; x < canvas.width; x++) {
+            const y1 = 50 * Math.sin(frequency * x + time);
+            const y2 = 50 * Math.sin(frequency * x - time);
+            const y = y1 + y2 + canvas.height / 2;
+            ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        time += 0.1;
+    }
+
+    setInterval(drawWaves, 1000 / 60);
 }
