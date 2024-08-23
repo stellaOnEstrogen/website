@@ -34,26 +34,6 @@ if (!project.value) {
     throw new Error('Failed to fetch project data from GitHub.');
 }
 
-/**
- * { name: 'git-account-switcher',
-  full_name: 'stellaOnEstrogen/git-account-switcher',
-  description:
-   'The Git Account Switcher is a tool designed to simplify the management of multiple Git configurations, allowing you to seamlessly switch between different accounts while working on various projects.',
-  html_url: 'https://github.com/stellaOnEstrogen/git-account-switcher',
-  stargazers_count: 3,
-  watchers_count: 3,
-  forks_count: 0,
-  open_issues_count: 0,
-  created_at: '2024-06-06T23:04:54Z',
-  updated_at: '2024-08-19T13:44:15Z',
-  pushed_at: '2024-08-19T13:44:11Z',
-  language: 'Python',
-  license: { name: 'Creative Commons Zero v1.0 Universal' },
-  topics: [ 'accounts', 'git', 'gitconfig', 'github', 'python', 'python3' ],
-  contributors_count: 1,
-  owner_avatar_url: 'https://avatars.githubusercontent.com/u/171978943?v=4' }
- */
-console.log(project.value);
 
 
 defineOgImageComponent('Repo', {
@@ -67,7 +47,6 @@ defineOgImageComponent('Repo', {
 });
 
 function makeRepoName(name: string) {
-    // Take for example: image-uploader-1 -> Image Uploader 1
     return name
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -83,7 +62,6 @@ const repoName = makeRepoName(project.value.name);
         Projects • {{ repoName }}
 	</h2>
 
-    <!-- Forks, Stars, Contributors, Language, Open Issues -->
     <div class="flex flex-row justify-center mt-4">
         <div class="flex flex-col items-center mr-4">
             <span class="text-gray-700">Stars</span>
