@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';
 import { config } from './config';
+const router = useRouter();
 
 const cherryBlossomVisible = ref<boolean>(true);
 const currentTime = ref<string | null>(null);
@@ -186,6 +187,8 @@ function initializeSakura(canvas: HTMLCanvasElement) {
 		}
 	}
 }
+
+const isIndex = router.currentRoute.value.path === '/';
 </script>
 
 <template>
@@ -218,15 +221,17 @@ function initializeSakura(canvas: HTMLCanvasElement) {
 					>
 				</div>
 
-				<div class="flex justify-center mt-4">
-					<a
-						v-for="(link, index) in config.frontLinks"
+				<div class="flex justify-center mt-4 space-x-4">
+					<!-- Home -->
+					<div v-if="!isIndex">
+						<nuxt-link to="/" class="text-blue-600">Home</nuxt-link>
+					</div>
+
+					<nuxt-link v-for="(link, index) in config.frontLinks"
 						:key="index"
-						:href="link.href"
-						:id="`front-link-${link.name.toLowerCase().replace(' ', '-')}`"
+						:to="link.href"
 						class="text-blue-600"
-						>{{ link.name }}</a
-					>
+						>{{ link.name }}</nuxt-link>
 				</div>
 			</div>
 			<div class="p-6 bg-white" id="page-content">

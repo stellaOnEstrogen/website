@@ -47,5 +47,9 @@ export const config: IConfig = {
 			name: 'Playground',
 			href: '/playground',
 		},
+		{
+			name: 'Projects',
+			href: '/projects',
+		},
 	],
 };

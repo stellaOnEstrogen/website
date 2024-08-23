@@ -19,7 +19,6 @@ if (!config.components.images.enabled) {
 	);
 	//@ts-ignore
 	picturesData.value = data.value.filter((image) => !image.ContentType.startsWith('video'));
-	console.log("data", data);
 	picturesStatus.value = pending ? 'pending' : 'done';
 
 }

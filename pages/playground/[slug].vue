@@ -24,14 +24,13 @@ defineOgImageComponent('Main', {
 });
 
 onMounted(() => {
-	const link = document.getElementById('front-link-playground');
-
-	if (link) {
-		link.setAttribute('href', '/');
-		link.textContent = 'Home';
-	}
 
 	playgroundItem.value?.module.then((module) => {
+
+		if (!module.default) {
+			throw new Error('Module does not have a default export.');
+		}
+		
 		module.default();
 		loadedCode.value = true;
 	});

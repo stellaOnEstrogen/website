@@ -8,14 +8,6 @@ defineOgImageComponent('Main', {
 	headline: `Playground`,
 });
 
-onMounted(() => {
-	const link = document.getElementById("front-link-playground");
-
-	if (link) {
-		link.setAttribute("href", "/");
-		link.textContent = "Home";
-	}
-});
 </script>
 
 <template>

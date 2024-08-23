@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { computed } from '#imports';
+import { languageColors } from '~/utils/languageColors';
 
 const props = withDefaults(
 	defineProps<{
 		title?: string;
 		description?: string;
 		language?: string;
-		downloads?: string | number;
+		open_issues?: string | number;
 		stars?: string | number;
 		contributors?: string | number;
 		owner_avatar?: string;
@@ -15,7 +16,7 @@ const props = withDefaults(
 		title: 'UNKNOWN/REPO',
 		description: 'UNKNOWN DESCRIPTION',
 		language: 'python',
-		downloads: '0',
+		open_issues: '0',
 		stars: '0',
 		contributors: '0',
 		owner_avatar: 'https://via.placeholder.com/200',
@@ -31,14 +32,19 @@ const stars = computed(() => {
 		compactDisplay: 'short',
 	}).format(Number(props.stars || 0));
 });
-const downloads = computed(() =>
+const open_issues = computed(() =>
 	new Intl.NumberFormat('en-US', {
 		notation: 'compact',
 		compactDisplay: 'short',
-	}).format(Number(props.downloads || 0)),
+	}).format(Number(props.open_issues || 0)),
 );
 
 const description = computed(() => (props.description || '').slice(0, 200));
+
+let langColor = computed(() => {
+	const lang = props.language || 'Unknown';
+	return languageColors.filter((l) => l.slug === lang.toLowerCase())[0]?.color || '#333';
+});
 </script>
 
 <template>
@@ -60,9 +66,14 @@ const description = computed(() => (props.description || '').slice(0, 200));
 					</p>
 				</div>
 				<div class="text-[200px]">
-					<img
+					<!-- <img
 						src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
 						class="w-[200px] h-[200px]"
+					/> -->
+					<img 
+						:src="owner_avatar"
+						class="w-[200px] h-[200px] rounded-[0.25rem]"
+						style="object-fit: cover; border: 2px solid #ecdc5a; border-radius: 50px;"
 					/>
 				</div>
 			</div>
@@ -73,16 +84,18 @@ const description = computed(() => (props.description || '').slice(0, 200));
 							xmlns="http://www.w3.org/2000/svg"
 							width="1em"
 							height="1em"
-							viewBox="0 0 32 32"
+							viewBox="0 0 15 15"
 						>
-							<path
-								fill="#888888"
-								d="m4.67 28l6.39-12l7.3 6.49a2 2 0 0 0 1.7.47a2 2 0 0 0 1.42-1.07L27 10.9l-1.82-.9l-5.49 11l-7.3-6.49a2 2 0 0 0-1.68-.51a2 2 0 0 0-1.42 1L4 25V2H2v26a2 2 0 0 0 2 2h26v-2Z"
-							/>
+							<g fill="currentColor">
+								<path
+									d="M7.5 1a6.5 6.5 0 1 0 0 13a6.5 6.5 0 0 0 0-13m0 12a5.5 5.5 0 1 1 0-11a5.5 5.5 0 0 1 0 11"
+								/>
+								<circle cx="7.5" cy="7.5" r="1" />
+							</g>
 						</svg>
 						<div class="pl-2">
-							<div>{{ downloads }}</div>
-							<div class="text-lg text-gray-600">Monthly Downloads</div>
+							<div>{{ open_issues }}</div>
+							<div class="text-lg text-gray-600">Open Issues</div>
 						</div>
 					</div>
 					<div class="flex flex-row pr-10">
@@ -122,17 +135,13 @@ const description = computed(() => (props.description || '').slice(0, 200));
 				</div>
 				<div class="flex flex-row">
 					<img
-						:src="owner_avatar"
+						:src="`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${language.toLowerCase()}/${language.toLowerCase()}-original.svg`"
 						class="rounded-[0.25rem] w-[100px] h-[100px]"
-						style="
-							object-fit: cover;
-							border: 2px solid #ecdc5a;
-							border-radius: 50px;
-						"
 					/>
 				</div>
 			</div>
 		</div>
-		<div class="absolute bottom-0 w-full h-8 bg-[#ECDC5A]" />
+		<!-- <div class="absolute bottom-0 w-full h-8 bg-[#ECDC5A]" /> -->
+		 <div :class="`absolute bottom-0 w-full h-8 bg-[${langColor}]`" />
 	</div>
 </template>

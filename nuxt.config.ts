@@ -39,4 +39,7 @@ export default defineNuxtConfig({
 			],
 		},
 	},
+	runtimeConfig: {
+		GITHUB_TOKEN: process.env.GITHUB_TOKEN,
+	},
 });
