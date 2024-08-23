@@ -47,31 +47,7 @@ const pronouns = makePronouns(config.pronouns, {
 		{{ config.about }}
 	</p>
 
-	<h2
-		class="text-2xl font-semibold text-pink-600 text-center mt-4"
-		id="pictures"
-		v-if="config.components.images.enabled"
-	>
-		Pictures (´｡• ω •｡`)
-	</h2>
-	<div
-		class="masonry-grid"
-		style="margin-top: 1rem"
-		v-if="pics.length > 0 || picturesPending"
-	>
-		<div v-for="(image, index) in pics" :key="index" class="masonry-item">
-			<a
-				:href="`${config.components.images.url}/view/${image.Id}`"
-				target="_blank"
-			>
-				<img
-					:src="`${config.components.images.url}/view/${image.Id}?raw=true`"
-					:alt="image.caption"
-					class="rounded-lg w-full object-cover"
-				/>
-			</a>
-		</div>
-	</div>
+	
 
 	<h2
 		class="text-2xl font-semibold text-pink-600 text-center mt-4"
@@ -160,6 +136,32 @@ const pronouns = makePronouns(config.pronouns, {
 			>Stella</a
 		>.
 	</p>
+
+	<h2
+		class="text-2xl font-semibold text-pink-600 text-center mt-4"
+		id="pictures"
+		v-if="config.components.images.enabled"
+	>
+		Pictures (´｡• ω •｡`)
+	</h2>
+	<div
+		class="masonry-grid"
+		style="margin-top: 1rem"
+		v-if="pics.length > 0 || picturesPending"
+	>
+		<div v-for="(image, index) in pics" :key="index" class="masonry-item">
+			<a
+				:href="`${config.components.images.url}/view/${image.Id}`"
+				target="_blank"
+			>
+				<img
+					:src="`${config.components.images.url}/view/${image.Id}?raw=true`"
+					:alt="image.caption"
+					class="rounded-lg w-full object-cover"
+				/>
+			</a>
+		</div>
+	</div>
 </template>
 
 <style scoped>
