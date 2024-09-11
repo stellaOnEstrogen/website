@@ -37,7 +37,7 @@ export const config: IConfig = {
 	},
 	contact: {
 		email: 'stella.dev@proton.me',
-		discordServer: 'https://discord.gg/853WXzszFj',
+		discordServer: 'https://discord.gg/tf73bchpqT',
 	},
 	// To get the timezone, you can use the following command: node -p 'Intl.DateTimeFormat().resolvedOptions().timeZone' \\
 	timezone: 'Asia/Tokyo',
