@@ -56,6 +56,97 @@ The final step is applying these rules to the input text. This is done by iterat
 
 To ensure the ruleset is correctly defined, we implemented a validation mechanism. This checks for common errors and ensures that each rule and variable is correctly formatted. The validation process involves checking the syntax of each line in the ruleset and verifying that it conforms to the expected structure.
 
+### Example
+
+### Input
+
+
+#### Ruleset
+
+```
+VARIABLE textReplacer = "****"
+IF TEXT CONTAINS "sh*t" THEN REPLACE WITH "****"
+IF TEXT CONTAINS "f*ck" THEN REPLACE WITH textReplacer
+IF TEXT CONTAINS "fu*" THEN REPLACE WITH textReplacer
+IF TEXT STARTS_WITH "Hello" THEN REPLACE WITH "Hi"
+IF TEXT ENDS_WITH "World" THEN REPLACE WITH "Universe"
+```
+
+#### Text
+
+Fuck Shit Hello World
+
+### Output
+
+#### Tokens
+
+```json
+[
+    { "type": "VARIABLE", "value": "VARIABLE" },
+    { "type": "TEXT", "value": "textReplacer" },
+    { "type": "EQUALS", "value": "=" },
+    { "type": "TEXT", "value": "****" },
+    { "type": "IF", "value": "IF" },
+    { "type": "TEXT", "value": "TEXT" },
+    { "type": "CONTAINS", "value": "CONTAINS" },
+    { "type": "TEXT", "value": "sh*t" },
+    { "type": "THEN", "value": "THEN" },
+    { "type": "REPLACE", "value": "REPLACE" },
+    { "type": "WITH", "value": "WITH" },
+    { "type": "TEXT", "value": "****" },
+    { "type": "IF", "value": "IF" },
+    { "type": "TEXT", "value": "TEXT" },
+    { "type": "CONTAINS", "value": "CONTAINS" },
+    { "type": "TEXT", "value": "f*ck" },
+    { "type": "THEN", "value": "THEN" },
+    { "type": "REPLACE", "value": "REPLACE" },
+    { "type": "WITH", "value": "WITH" },
+    { "type": "TEXT", "value": "textReplacer" },
+    { "type": "IF", "value": "IF" },
+    { "type": "TEXT", "value": "TEXT" },
+    { "type": "CONTAINS", "value": "CONTAINS" },
+    { "type": "TEXT", "value": "fu*" },
+    { "type": "THEN", "value": "THEN" },
+    { "type": "REPLACE", "value": "REPLACE" },
+    { "type": "WITH", "value": "WITH" },
+    { "type": "TEXT", "value": "textReplacer" },
+    { "type": "IF", "value": "IF" },
+    { "type": "TEXT", "value": "TEXT" },
+    { "type": "STARTS_WITH", "value": "STARTS_WITH" },
+    { "type": "TEXT", "value": "Hello" },
+    { "type": "THEN", "value": "THEN" },
+    { "type": "REPLACE", "value": "REPLACE" },
+    { "type": "WITH", "value": "WITH" },
+    { "type": "TEXT", "value": "Hi" },
+    { "type": "IF", "value": "IF" },
+    { "type": "TEXT", "value": "TEXT" },
+    { "type": "ENDS_WITH", "value": "ENDS_WITH" },
+    { "type": "TEXT", "value": "World" },
+    { "type": "THEN", "value": "THEN" },
+    { "type": "REPLACE", "value": "REPLACE" },
+    { "type": "WITH", "value": "WITH" },
+    { "type": "TEXT", "value": "Universe" }
+]
+```
+
+#### Rules
+
+```json
+[
+  { "pattern": "sh[^\s]*t", "replacement": "****" },
+  { "pattern": "f[^\s]*ck", "replacement": "****" },
+  { "pattern": "fu[^\s]*", "replacement": "****" },
+  { "pattern": "^Hello", "replacement": "Hi" },
+  { "pattern": "World$", "replacement": "Universe" }
+]
+```
+
+#### Result
+
+`**** **** Hello Universe`
+
+
+
 # Conclusion
 
 Building the VtubersTV AutoModeration System required a deep understanding of text processing, regular expressions, and robust error handling. By breaking down the problem into tokenization, parsing, rule application, and validation, we were able to create a system that is both powerful and flexible. This ensures that our community remains a safe and welcoming place for all users.
