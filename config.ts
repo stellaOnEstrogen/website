@@ -54,7 +54,7 @@ export const config: IConfig = {
     {
       name: 'About',
       href: '/about',
-    }
+    },
 		{
 			name: "Discord",
 			href: "https://discord.gg/tf73bchpqT",
