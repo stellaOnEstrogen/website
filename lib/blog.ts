@@ -57,7 +57,7 @@ export type Metadata = {
   }
   
   export function getBlogPosts(amount = 5, page = 1) {
-    const posts = getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'));
+    const posts = getMDXData(path.join(process.cwd(), 'markdown', 'blog'));
   
     const start = (page - 1) * amount;
     const end = start + amount;
@@ -66,11 +66,11 @@ export type Metadata = {
   }
   
   export function getAllBlogPosts() {
-    return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'));
+    return getMDXData(path.join(process.cwd(), 'markdown', 'blog'));
   }
   
   export function getBlogPost(slug: string): BlogPost | undefined {
-    const posts = getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'));
+    const posts = getMDXData(path.join(process.cwd(), 'markdown', 'blog'));
     return posts.find((post) => post.slug === slug);
   }
   

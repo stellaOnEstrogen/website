@@ -1,15 +1,12 @@
-import { Button } from "@/components/ui/button";
 import { Send as SendIcon } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { config } from "@/config";
-import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
 import markdownStyles from "./markdown-styles.module.css";
 import 'highlight.js/styles/default.css';
 import hljs from 'highlight.js';
-import { getMarkdownContent, getMarkdown } from "@/lib/md";
+import { getMarkdownContent } from "@/lib/md";
 import { remark } from "remark";
 import html from "remark-html";
 
@@ -34,8 +31,20 @@ async function markdownToHtml(markdown: string) {
 
 
 export default async function LookBeforeMessaging() {
-  const mdx = getMarkdown('pages');
   const md = getMarkdownContent('pages', 'dm');
+
+    if (!md) {
+    return (
+      <div className="min-h-screen bg-pink-50 text-pink-900 flex flex-col">
+        <Header />
+        <main className="flex-grow p-8 max-w-4xl mx-auto">
+          <p>This file has either been moved or deleted. Please check back later!</p>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   const content = await markdownToHtml(md.content);
 
   return (
@@ -46,9 +55,11 @@ export default async function LookBeforeMessaging() {
           <SendIcon className="h-8 w-8 mr-2 text-pink-400" />
           Message Me
         </h2>
-        <p className="text-center text-sm mb-8">
+          <p className="text-center text-sm mb-8">
+           {/* eslint-disable-next-line react/no-unescaped-entities */}
           So you want to message me? That's great! But before you do, please read this page to understand how to message me and what to expect.
-        </p>
+          </p>
+
           <div className={`prose prose-pink max-w-none mb-6 ${markdownStyles["markdown"]}`} dangerouslySetInnerHTML={{ __html: content }}>
         </div>
       </main>
