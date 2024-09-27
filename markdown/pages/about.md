@@ -19,7 +19,7 @@ I also do freelance work, mostly:
 
 Feel free to check out my socials if you wanna connect!
 
-- **Website:** [bit.ly/stella-web](https://bit.ly/stella-web)
+- **Twitter:** [x.com/stellerDev](https://x.com/stellerDev)
 - **Discord:** [discord.gg/4t7ZsJjeeG](https://discord.gg/4t7ZsJjeeG)
 - **GitHub:** [github.com/stellaOnEstrogen](https://github.com/stellaOnEstrogen)
 
