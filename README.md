@@ -44,4 +44,5 @@ To upload images like in the image below, you can use the [image-uploader](https
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
+
