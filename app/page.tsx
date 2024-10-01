@@ -14,11 +14,6 @@ import Link from 'next/link'
 import { GetIcon } from '@/components/icons'
 import { useNightMode } from '@/hooks/useNightMode'
 
-interface GitHubBranch {
-	name: string
-	// Add other properties if needed
-}
-
 const getBlogPosts = async (
 	page: number,
 	limit: number,
@@ -30,72 +25,16 @@ const getBlogPosts = async (
 	return res.json().then((data: { data: BlogPost[] }) => data.data)
 }
 
-async function getOldWebsiteVariations(): Promise<string[]> {
-	const cacheKey = 'oldWebsiteVariations'
-	const cacheTime = 3600000 // 1 hour in milliseconds
-
-	// Check if cached data exists and is still valid
-	const cachedData = localStorage.getItem(cacheKey)
-	if (cachedData) {
-		const { data, timestamp } = JSON.parse(cachedData)
-		if (Date.now() - timestamp < cacheTime) {
-			return data
-		}
-	}
-
-	// Fetch new data if cache is invalid or doesn't exist
-	try {
-		const response = await fetch(
-			'https://api.github.com/repos/stellaOnEstrogen/website/branches',
-		)
-		if (!response.ok) {
-			throw new Error('Failed to fetch branches')
-		}
-		// Remove 'main' branch
-		const branches = await response
-			.json()
-			.then((data: GitHubBranch[]) => data.map((branch) => branch.name))
-			.then((branches: string[]) =>
-				branches.filter((branch) => branch !== 'main'),
-			)
-
-		// Cache the new data
-		localStorage.setItem(
-			cacheKey,
-			JSON.stringify({
-				data: branches,
-				timestamp: Date.now(),
-			}),
-		)
-
-		return branches
-	} catch (error) {
-		console.error('Error fetching old website variations:', error)
-		return []
-	}
-}
-
 export default function Home() {
 	const { isNightMode, toggleNightMode } = useNightMode()
 	const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
 	const [isLoading, setIsLoading] = useState(true)
-	const [oldWebsiteVariations, setOldWebsiteVariations] = useState<string[]>([])
-
-	// Extract the domain from the URL and remove the subdomain
-	const hostname = config.url.split('://')[1].split('.')[1]
-	const topLevelDomain = config.url.split('://')[1].split('.')[2]
-
-	const website = `${hostname}.${topLevelDomain}`
 
 	useEffect(() => {
 		setIsLoading(true)
 		getBlogPosts(1, 4)
 			.then(setBlogPosts)
 			.finally(() => setIsLoading(false))
-	}, [])
-
-	useEffect(() => {
-		getOldWebsiteVariations().then(setOldWebsiteVariations)
 	}, [])
 
 	return (
@@ -219,23 +158,6 @@ export default function Home() {
 						))}
 					</div>
 				</section>
-
-				{oldWebsiteVariations.length > 0 && (
-					<section id="old-website-variations" className="mb-12 pt-12">
-						<h2 className="mb-4 text-3xl font-bold">Old website versions</h2>
-						<div className="flex space-x-4">
-							{oldWebsiteVariations.map((variation) => (
-								<Link
-									key={variation}
-									href={`https://${variation}.${website}/?ref=main`}
-									target="_blank"
-								>
-									{variation}
-								</Link>
-							))}
-						</div>
-					</section>
-				)}
 			</main>
 			<Footer isNightMode={isNightMode} />
 		</div>

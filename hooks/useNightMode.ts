@@ -29,7 +29,10 @@ export const useNightMode = () => {
 		return () => mediaQuery.removeEventListener('change', handleChange)
 	}, [setMode])
 
-	const toggleNightMode = useCallback(() => setMode(!isNightMode), [isNightMode, setMode])
+	const toggleNightMode = useCallback(
+		() => setMode(!isNightMode),
+		[isNightMode, setMode],
+	)
 
 	return { isNightMode, toggleNightMode }
 }
