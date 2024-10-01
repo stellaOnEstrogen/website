@@ -18,11 +18,6 @@ export const useNightMode = () => {
 		setIsNightMode(mode)
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('nightMode', mode.toString())
-			if (mode) {
-				document.documentElement.classList.add('dark')
-			} else {
-				document.documentElement.classList.remove('dark')
-			}
 		}
 	}, [])
 
@@ -34,14 +29,7 @@ export const useNightMode = () => {
 		return () => mediaQuery.removeEventListener('change', handleChange)
 	}, [setMode])
 
-	useEffect(() => {
-		setMode(isNightMode)
-	}, [isNightMode, setMode])
-
-	const toggleNightMode = useCallback(
-		() => setMode(!isNightMode),
-		[isNightMode, setMode],
-	)
+	const toggleNightMode = useCallback(() => setMode(!isNightMode), [isNightMode, setMode])
 
 	return { isNightMode, toggleNightMode }
 }
