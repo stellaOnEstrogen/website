@@ -6,12 +6,9 @@ export const useNightMode = () => {
 	const [isNightMode, setIsNightMode] = useState(() => {
 		if (typeof window !== 'undefined') {
 			const storedMode = localStorage.getItem('nightMode')
-			if (storedMode) {
-				return storedMode === 'true'
-			}
-			return window.matchMedia('(prefers-color-scheme: dark)').matches
+			return storedMode !== null ? storedMode === 'true' : true
 		}
-		return false
+		return true
 	})
 
 	const setMode = useCallback((mode: boolean) => {
@@ -25,8 +22,8 @@ export const useNightMode = () => {
 		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 		const handleChange = (e: MediaQueryListEvent) => setMode(e.matches)
 
-		mediaQuery.addEventListener('change', handleChange)
-		return () => mediaQuery.removeEventListener('change', handleChange)
+		mediaQuery.addListener(handleChange)
+		return () => mediaQuery.removeListener(handleChange)
 	}, [setMode])
 
 	const toggleNightMode = useCallback(
