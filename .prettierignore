@@ -1,0 +1,41 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# Documentation
+*.md
+
+# Configuration files
+*.json
+*.lock
+*.yml
+*.yaml
+
+# Web assets
+*.html
+*.css
+*.scss
+*.map
+
+# Logs
+*.log
+
+# Specific files
+data/emails/types.ts
+
+# Version control
+.git
+.gitignore
+
+# Editor files
+.vscode
+.idea
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Next.js
+.next

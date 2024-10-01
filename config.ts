@@ -1,4 +1,4 @@
-import type { IConfig } from './interfaces/IConfig';
+import type { IConfig } from './interfaces/IConfig'
 
 export const config: IConfig = {
 	githubUserName: 'stellaOnEstrogen',
@@ -25,7 +25,7 @@ export const config: IConfig = {
 			name: 'Discord',
 			url: 'https://discord.com/users/1248626823638552701',
 			openInNewTab: true,
-		}
+		},
 	],
 	avatar: '/me.jpg',
 	about: `I'm a Full Stack Developer with a passion for vtubers and anime. I'm currently working on a project called VtubersTV, a platform for vtubers by vtubers. (I love CottontailVA)`,
@@ -47,13 +47,19 @@ export const config: IConfig = {
 			name: 'Blog',
 			href: '/blog',
 		},
-    {
-      name: 'About',
-      href: '/about',
-    },
 		{
-			name: "Discord",
-			href: "https://discord.gg/tf73bchpqT",
-		}
+			name: 'About',
+			href: '/about',
+		},
+		{
+			name: 'Discord',
+			href: 'https://discord.gg/tf73bchpqT',
+		},
 	],
-};
+	links: [
+		{
+			name: 'Google',
+			url: 'https://google.com',
+		},
+	],
+}

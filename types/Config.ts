@@ -14,7 +14,7 @@ export type Pronouns =
 	| 'they/she/their/her/themselves/herself'
 	| 'they/he/their/his/themselves/himself'
 	| 'she/they/her/their/herself/themselves'
-	| 'he/they/his/their/himself/themselves';
+	| 'he/they/his/their/himself/themselves'
 
 export type Timezones =
 	| 'Africa/Abidjan'
@@ -434,4 +434,4 @@ export type Timezones =
 	| 'Pacific/Tongatapu'
 	| 'Pacific/Truk'
 	| 'Pacific/Wake'
-	| 'Pacific/Wallis';
+	| 'Pacific/Wallis'

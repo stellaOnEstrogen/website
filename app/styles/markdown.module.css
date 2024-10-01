@@ -1,0 +1,388 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply my-6;
+}
+
+/* Headings */
+.markdown h1 {
+  @apply text-4xl font-bold mt-12 mb-4 leading-snug text-amber-900;
+}
+
+.markdown h2 {
+  @apply text-3xl font-semibold mt-10 mb-4 leading-snug text-amber-800;
+}
+
+.markdown h3 {
+  @apply text-2xl font-semibold mt-8 mb-4 leading-snug text-amber-700;
+}
+
+.markdown h4 {
+  @apply text-xl font-semibold mt-6 mb-4 leading-snug text-amber-700;
+}
+
+.markdown h5 {
+  @apply text-lg font-medium mt-4 mb-2 text-amber-600;
+}
+
+.markdown h6 {
+  @apply text-base font-medium mt-4 mb-2 text-amber-600;
+}
+
+/* Paragraphs, Lists */
+.markdown ul,
+.markdown ol {
+  @apply list-disc list-inside ml-4 text-amber-900;
+}
+
+.markdown ol {
+  @apply list-decimal;
+}
+
+.markdown li {
+  @apply mb-2;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-amber-300 pl-4 italic text-amber-700;
+}
+
+.markdown img {
+    @apply my-8 mx-auto rounded-lg shadow-md;
+    max-width: 100%; /* Ensures image does not overflow its container */
+    height: auto;    /* Maintains aspect ratio */
+    display: block;
+  }
+  
+  .markdown figure {
+    @apply my-8 text-center; /* Centers the figure block */
+  }
+  
+  .markdown figcaption {
+    @apply text-center text-sm text-amber-700 mt-2 italic;
+  }
+
+/* Links */
+.markdown a {
+  @apply text-amber-600 underline;
+}
+
+/* Code blocks */
+.markdown pre {
+  @apply bg-gray-900 text-amber-100 p-4 rounded-md overflow-x-auto my-6;
+}
+
+.markdown code {
+  @apply bg-amber-100 text-amber-900 p-1 rounded;
+}
+
+.markdown pre code {
+  @apply text-amber-100 bg-transparent;
+}
+
+/* Horizontal Rule */
+.markdown hr {
+  @apply border-t border-amber-300 my-8;
+}
+
+/* Emphasis */
+.markdown em {
+  @apply italic;
+}
+
+.markdown strong {
+  @apply font-semibold;
+}
+
+/* Tables */
+.markdown table {
+  @apply w-full table-auto my-6;
+}
+
+.markdown th {
+  @apply bg-amber-200 font-semibold p-2 text-left text-amber-900;
+}
+
+.markdown td {
+  @apply border-t border-amber-300 p-2 text-amber-900;
+}
+
+.markdown tr:nth-child(even) {
+  @apply bg-amber-50;
+}
+
+/* Additional Elements */
+.markdown del {
+  @apply line-through;
+}
+
+.markdown ins {
+  @apply bg-amber-100;
+}
+
+/* Inline Quotes */
+.markdown q {
+  @apply text-amber-700 italic;
+}
+
+/* Superscript/Subscript */
+.markdown sup {
+  @apply align-super text-xs;
+}
+
+.markdown sub {
+  @apply align-sub text-xs;
+}
+
+/* Badge containers */
+.markdown .language-badges,
+.markdown .tool-badges,
+.markdown .framework-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+/* Generic badge style */
+.markdown .language-badge,
+.markdown .tool-badge,
+.markdown .framework-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px 4px 8px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Color dot for badges */
+.markdown .language-badge::before,
+.markdown .tool-badge::before,
+.markdown .framework-badge::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.markdown-light {
+    @apply text-lg leading-relaxed;
+  }
+  
+  .markdown-light p,
+  .markdown-light ul,
+  .markdown-light ol,
+  .markdown-light blockquote {
+    @apply my-6;
+  }
+  
+  /* Headings */
+  .markdown-light h1 {
+    @apply text-4xl font-bold mt-12 mb-4 leading-snug text-gray-900;
+  }
+  
+  .markdown-light h2 {
+    @apply text-3xl font-semibold mt-10 mb-4 leading-snug text-gray-800;
+  }
+  
+  .markdown-light h3 {
+    @apply text-2xl font-semibold mt-8 mb-4 leading-snug text-gray-700;
+  }
+  
+  .markdown-light h4 {
+    @apply text-xl font-semibold mt-6 mb-4 leading-snug text-gray-700;
+  }
+  
+  .markdown-light h5 {
+    @apply text-lg font-medium mt-4 mb-2 text-gray-600;
+  }
+  
+  .markdown-light h6 {
+    @apply text-base font-medium mt-4 mb-2 text-gray-600;
+  }
+  
+  /* Paragraphs, Lists */
+  .markdown-light ul,
+  .markdown-light ol {
+    @apply list-disc list-inside ml-4 text-gray-900;
+  }
+  
+  .markdown-light ol {
+    @apply list-decimal;
+  }
+  
+  .markdown-light li {
+    @apply mb-2;
+  }
+  
+  .markdown-light blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-700;
+  }
+  
+  .markdown-light img {
+    @apply my-8 mx-auto rounded-lg shadow-md;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .markdown-light figure {
+    @apply my-8 text-center;
+  }
+  
+  .markdown-light figcaption {
+    @apply text-center text-sm text-gray-700 mt-2 italic;
+  }
+  
+  /* Links */
+  .markdown-light a {
+    @apply text-blue-600 underline;
+  }
+  
+  /* Code blocks */
+  .markdown-light pre {
+    @apply bg-gray-100 text-gray-900 p-4 rounded-md overflow-x-auto my-6;
+  }
+  
+  .markdown-light code {
+    @apply bg-gray-200 text-gray-900 p-1 rounded;
+  }
+  
+  .markdown-light pre code {
+    @apply text-gray-900 bg-transparent;
+  }
+  
+  /* Horizontal Rule */
+  .markdown-light hr {
+    @apply border-t border-gray-300 my-8;
+  }
+  
+  /* Emphasis */
+  .markdown-light em {
+    @apply italic;
+  }
+  
+  .markdown-light strong {
+    @apply font-semibold;
+  }
+  
+  /* Tables */
+  .markdown-light table {
+    @apply w-full table-auto my-6;
+  }
+  
+  .markdown-light th {
+    @apply bg-gray-200 font-semibold p-2 text-left text-gray-900;
+  }
+  
+  .markdown-light td {
+    @apply border-t border-gray-300 p-2 text-gray-900;
+  }
+  
+  .markdown-light tr:nth-child(even) {
+    @apply bg-gray-50;
+  }
+  
+  /* Additional Elements */
+  .markdown-light del {
+    @apply line-through;
+  }
+  
+  .markdown-light ins {
+    @apply bg-gray-100;
+  }
+  
+  /* Inline Quotes */
+  .markdown-light q {
+    @apply text-gray-700 italic;
+  }
+  
+  /* Superscript/Subscript */
+  .markdown-light sup {
+    @apply align-super text-xs;
+  }
+  
+  .markdown-light sub {
+    @apply align-sub text-xs;
+  }
+
+/* Language badges */
+.markdown .badge-bash { background-color: #3e4548; color: white; }
+.markdown .badge-bash::before { background-color: #4EAA25; }
+
+.markdown .badge-csharp { background-color: #3e2c7c; color: white; }
+.markdown .badge-csharp::before { background-color: #239120; }
+
+.markdown .badge-cpp { background-color: #004283; color: white; }
+.markdown .badge-cpp::before { background-color: #00599C; }
+
+.markdown .badge-html5 { background-color: #e34c26; color: white; }
+.markdown .badge-html5::before { background-color: #f06529; }
+
+.markdown .badge-javascript { background-color: #f0db4f; color: black; }
+.markdown .badge-javascript::before { background-color: #323330; }
+
+.markdown .badge-python { background-color: #3776AB; color: white; }
+.markdown .badge-python::before { background-color: #ffd43b; }
+
+.markdown .badge-markdown { background-color: #000000; color: white; }
+.markdown .badge-markdown::before { background-color: #ffffff; }
+
+.markdown .badge-nodejs { background-color: #3c873a; color: white; }
+.markdown .badge-nodejs::before { background-color: #68a063; }
+
+.markdown .badge-rust { background-color: #000000; color: #DEA584; }
+.markdown .badge-rust::before { background-color: #DEA584; }
+
+.markdown .badge-typescript { background-color: #007acc; color: white; }
+.markdown .badge-typescript::before { background-color: #007acc; }
+
+/* Tool badges */
+.markdown .badge-vscode { background-color: #007ACC; color: white; }
+.markdown .badge-vscode::before { background-color: #0098ff; }
+
+.markdown .badge-neovim { background-color: #57A143; color: white; }
+.markdown .badge-neovim::before { background-color: #4b9638; }
+
+.markdown .badge-vim { background-color: #019733; color: white; }
+.markdown .badge-vim::before { background-color: #42b883; }
+
+.markdown .badge-nano { background-color: #4A90E2; color: white; }
+.markdown .badge-nano::before { background-color: #2c6bb1; }
+
+/* Framework badges */
+.markdown .badge-astro { background-color: #FF5D01; color: white; }
+.markdown .badge-astro::before { background-color: #ff7e33; }
+
+.markdown .badge-bootstrap { background-color: #7952B3; color: white; }
+.markdown .badge-bootstrap::before { background-color: #563d7c; }
+
+.markdown .badge-discordjs { background-color: #5865F2; color: white; }
+.markdown .badge-discordjs::before { background-color: #7289da; }
+
+.markdown .badge-nuxtjs { background-color: #00DC82; color: white; }
+.markdown .badge-nuxtjs::before { background-color: #00c58e; }
+
+.markdown .badge-nextjs { background-color: #000000; color: white; }
+.markdown .badge-nextjs::before { background-color: #ffffff; }
+
+.markdown .badge-tailwind { background-color: #06B6D4; color: white; }
+.markdown .badge-tailwind::before { background-color: #38bdf8; }
+
+/* Hover effects for all badges */
+.markdown .language-badge:hover,
+.markdown .tool-badge:hover,
+.markdown .framework-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

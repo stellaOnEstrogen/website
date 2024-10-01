@@ -5,7 +5,7 @@ This is my personal website. It is built using [NextJS](https://nextjs.org?ref=g
 ## Features
 
 - **Customizable**: You can easily customize the website by editing the [`config.ts`](./config.ts) file.
-- **Cute Design**: The website has a cute design, with a pastel color palette and a cute font.
+- **Dark Design**: The website is designed after Satanism, with a dark theme.
 
 ## Development
 
@@ -33,7 +33,6 @@ The website will be available at `http://localhost:3000/`.
 - ~~Add a blog section~~
 - Add a projects section
 - Add a contact form
-- ~~Add a image intergration~~ [(Done)](https://github.com/stellaOnEstrogen/image-uploader)
 
 ## Uploading Images
 
