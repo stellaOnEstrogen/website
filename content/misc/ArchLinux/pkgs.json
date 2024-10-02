@@ -1,0 +1,206 @@
+{
+    "openssh": {
+        "name": "OpenSSH",
+        "description": "OpenSSH server and client",
+        "install": "sudo pacman -S openssh",
+        "category": "Networking"
+    },
+    "github-cli": {
+        "name": "GitHub CLI",
+        "description": "GitHub's official command-line tool",
+        "install": "sudo pacman -S github-cli",
+        "category": "Development"
+    },
+    "bat": {
+        "name": "Bat",
+        "description": "A cat clone with syntax highlighting and Git integration",
+        "install": "sudo pacman -S bat",
+        "category": "Utilities"
+    },
+    "clang": {
+        "name": "Clang",
+        "description": "C language family frontend for LLVM",
+        "install": "sudo pacman -S clang",
+        "category": "Development"
+    },
+    "llvm": {
+        "name": "LLVM",
+        "description": "Compiler infrastructure for the LLVM project",
+        "install": "sudo pacman -S llvm",
+        "category": "Development"
+    },
+    "rust": {
+        "name": "Rust",
+        "description": "Systems programming language from Mozilla",
+        "install": "sudo pacman -S rust",
+        "category": "Development"
+    },
+    "neofetch": {
+        "name": "Neofetch",
+        "description": "A command-line system information tool",
+        "install": "sudo pacman -S neofetch",
+        "category": "System"
+    },
+    "bashtop": {
+        "name": "Bashtop",
+        "description": "A top-like monitoring tool for the terminal",
+        "install": "sudo pacman -S bashtop",
+        "category": "System"
+    },
+    "htop": {
+        "name": "Htop",
+        "description": "An interactive process viewer for the terminal",
+        "install": "sudo pacman -S htop",
+        "category": "System"
+    },
+    "nyancat": {
+        "name": "Nyan Cat",
+        "description": "Nyancat rendered in your terminal",
+        "install": "sudo pacman -S nyancat",
+        "category": "Fun"
+    },
+    "cmatrix": {
+        "name": "CMatrix",
+        "description": "A curses-based scrolling 'Matrix'-like screen",
+        "install": "sudo pacman -S cmatrix",
+        "category": "Fun"
+    },
+    "exa": {
+        "name": "Exa",
+        "description": "A modern replacement for ls with colorful output, file type icons, and more",
+        "install": "sudo pacman -S exa",
+        "category": "Utilities"
+    },
+    "lsd": {
+        "name": "LSD",
+        "description": "Clone of ls with colorful output, file type icons, and more",
+        "install": "sudo pacman -S lsd",
+        "category": "Utilities"
+    },
+    "fzf": {
+        "name": "FZF",
+        "description": "A command-line fuzzy finder",
+        "install": "sudo pacman -S fzf",
+        "category": "Utilities"
+    },
+    "vim": {
+        "name": "Vim",
+        "description": "Highly configurable text editor built to enable efficient text editing",
+        "install": "sudo pacman -S vim",
+        "category": "Editors"
+    },
+    "neovim": {
+        "name": "Neovim",
+        "description": "Hyperextensible Vim-based text editor",
+        "install": "sudo pacman -S neovim",
+        "category": "Editors"
+    },
+    "tmux": {
+        "name": "Tmux",
+        "description": "Terminal multiplexer",
+        "install": "sudo pacman -S tmux",
+        "category": "Utilities"
+    },
+    "docker": {
+        "name": "Docker",
+        "description": "Pack, ship and run any application as a lightweight container",
+        "install": "sudo pacman -S docker",
+        "category": "Development"
+    },
+    "nodejs": {
+        "name": "Node.js",
+        "description": "Evented I/O for V8 javascript",
+        "install": "sudo pacman -S nodejs npm",
+        "category": "Development"
+    },
+    "ripgrep": {
+        "name": "Ripgrep",
+        "description": "A search tool that combines the usability of ag with the raw speed of grep",
+        "install": "sudo pacman -S ripgrep",
+        "category": "Utilities"
+    },
+    "zsh": {
+        "name": "Zsh",
+        "description": "A very advanced and programmable command interpreter (shell) for UNIX",
+        "install": "sudo pacman -S zsh",
+        "category": "Shells"
+    },
+    "gcc": {
+        "name": "GCC",
+        "description": "The GNU Compiler Collection",
+        "install": "sudo pacman -S gcc",
+        "category": "Development"
+    },
+    "firefox": {
+        "name": "Firefox",
+        "description": "Standalone web browser from mozilla.org",
+        "install": "sudo pacman -S firefox",
+        "category": "Internet"
+    },
+    "vlc": {
+        "name": "VLC",
+        "description": "Multi-platform MPEG, VCD/DVD, and DivX player",
+        "install": "sudo pacman -S vlc",
+        "category": "Multimedia"
+    },
+    "gimp": {
+        "name": "GIMP",
+        "description": "GNU Image Manipulation Program",
+        "install": "sudo pacman -S gimp",
+        "category": "Graphics"
+    },
+    "libreoffice-fresh": {
+        "name": "LibreOffice",
+        "description": "A free and open-source office suite",
+        "install": "sudo pacman -S libreoffice-fresh",
+        "category": "Office"
+    },
+    "obsidian": {
+        "name": "Obsidian",
+        "description": "A powerful knowledge base that works on top of a local folder of plain text Markdown files",
+        "install": "sudo pacman -S obsidian",
+        "category": "Productivity"
+    },
+    "discord": {
+        "name": "Discord",
+        "description": "All-in-one voice and text chat for gamers",
+        "install": "sudo pacman -S discord",
+        "category": "Internet"
+    },
+    "spotify": {
+        "name": "Spotify",
+        "description": "Music streaming service",
+        "install": "sudo pacman -S spotify",
+        "category": "Multimedia"
+    },
+    "google-chrome": {
+        "name": "Google Chrome",
+        "description": "Web browser developed by Google",
+        "install": "sudo pacman -S google-chrome",
+        "category": "Internet"
+    },
+    "slack": {
+        "name": "Slack",
+        "description": "Team communication platform",
+        "install": "sudo pacman -S slack",
+        "category": "Internet"
+    },
+    "zoom": {
+        "name": "Zoom",
+        "description": "Video communication platform",
+        "install": "sudo pacman -S zoom",
+        "category": "Internet"
+    },
+    "visual-studio-code": {
+        "name": "Visual Studio Code",
+        "description": "A source code editor made by Microsoft for Windows, Linux, and macOS",
+        "install": "sudo pacman -S visual-studio-code-bin",
+        "category": "Development"
+    },
+    "vscodium": {
+        "name": "VSCodium",
+        "description": "A community-driven, freely-licensed binary distribution of Microsoft's Visual Studio Code",
+        "install": "sudo pacman -S vscodium",
+        "category": "Development"
+    }
+}

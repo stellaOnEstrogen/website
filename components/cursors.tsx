@@ -1,19 +1,26 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const Cursors: React.FC = () => {
+	const cursorRef = useRef<HTMLDivElement | null>(null)
+
 	useEffect(() => {
 		const cursor = document.createElement('div')
 		cursor.className = 'custom-cursor'
 		document.body.appendChild(cursor)
+		cursorRef.current = cursor
 
 		const updateCursor = (e: MouseEvent) => {
-			cursor.style.left = `${e.clientX}px`
-			cursor.style.top = `${e.clientY}px`
+			if (cursorRef.current) {
+				cursorRef.current.style.left = `${e.clientX}px`
+				cursorRef.current.style.top = `${e.clientY}px`
+			}
 		}
 
 		const updateCursorType = (e: MouseEvent) => {
+			if (!cursorRef.current) return
+
 			const target = e.target as HTMLElement
 			if (
 				target.tagName === 'A' ||
@@ -22,8 +29,8 @@ const Cursors: React.FC = () => {
 				target.tagName === 'TEXTAREA' ||
 				target.tagName === 'SELECT'
 			) {
-				cursor.classList.add('hovering-interactive')
-				cursor.classList.remove('hovering-text', 'hovering-default')
+				cursorRef.current.classList.add('hovering-interactive')
+				cursorRef.current.classList.remove('hovering-text', 'hovering-default')
 			} else if (
 				target.tagName === 'P' ||
 				target.tagName === 'SPAN' ||
@@ -37,22 +44,25 @@ const Cursors: React.FC = () => {
 				target.tagName === 'TD' ||
 				target.tagName === 'TH'
 			) {
-				cursor.classList.add('hovering-text')
-				cursor.classList.remove('hovering-interactive', 'hovering-default')
+				cursorRef.current.classList.add('hovering-text')
+				cursorRef.current.classList.remove(
+					'hovering-interactive',
+					'hovering-default',
+				)
 			} else if (
 				target.tagName === 'IMG' ||
 				target.tagName === 'VIDEO' ||
 				target.tagName === 'CANVAS'
 			) {
-				cursor.classList.add('hovering-media')
-				cursor.classList.remove(
+				cursorRef.current.classList.add('hovering-media')
+				cursorRef.current.classList.remove(
 					'hovering-interactive',
 					'hovering-text',
 					'hovering-default',
 				)
 			} else {
-				cursor.classList.add('hovering-default')
-				cursor.classList.remove(
+				cursorRef.current.classList.add('hovering-default')
+				cursorRef.current.classList.remove(
 					'hovering-interactive',
 					'hovering-text',
 					'hovering-media',
@@ -66,7 +76,9 @@ const Cursors: React.FC = () => {
 		return () => {
 			document.removeEventListener('mousemove', updateCursor)
 			document.removeEventListener('mouseover', updateCursorType)
-			document.body.removeChild(cursor)
+			if (cursorRef.current && document.body.contains(cursorRef.current)) {
+				document.body.removeChild(cursorRef.current)
+			}
 		}
 	}, [])
 

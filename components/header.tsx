@@ -47,6 +47,7 @@ export default function Header({
 		{ href: '/about', text: 'About' },
 		{ href: '/grimoire', text: 'Grimoire' },
 		{ href: '/dm', text: 'DM' },
+		{ href: '/notes', text: 'Notes' },
 	]
 
 	return (

@@ -38,13 +38,14 @@ function parseFrontmatter(
 				const parsed = JSON.parse(fileContent)
 				return {
 					metadata: parsed.metadata || {},
-					content: parsed.content || '',
+					content: parsed || '',
 				}
 			} catch (error) {
 				console.error('Error parsing JSON:', error)
 				return { metadata: {}, content: fileContent }
 			}
 		case 'yaml':
+		case 'yml':
 			try {
 				const parsed = yaml.load(fileContent) as {
 					metadata?: Metadata
@@ -59,14 +60,14 @@ function parseFrontmatter(
 				return { metadata: {}, content: fileContent }
 			}
 		case 'markdown':
+		case 'md':
+		case 'mdx':
 			const { data, content } = matter(fileContent)
 			return {
 				metadata: data,
 				content: content.trim(),
 			}
 		case 'html':
-			// For HTML, we could parse meta tags or a special comment block for metadata
-			// This is a simple implementation and might need to be adjusted based on your HTML structure
 			const htmlMetadataRegex = /<!--\s*METADATA\s*([\s\S]*?)\s*-->/
 			const htmlMatch = htmlMetadataRegex.exec(fileContent)
 			if (htmlMatch) {
@@ -80,6 +81,7 @@ function parseFrontmatter(
 			}
 			return { metadata: {}, content: fileContent.trim() }
 		case 'text':
+		case 'txt':
 		default:
 			return { metadata: {}, content: fileContent.trim() }
 	}
@@ -95,7 +97,7 @@ function getContentFilesInDir(dir: string): string[] {
 		.readdirSync(dir)
 		.filter((file) =>
 			['.json', '.yaml', '.yml', '.md', '.mdx', '.html', '.txt'].includes(
-				path.extname(file),
+				path.extname(file).toLowerCase(),
 			),
 		)
 }
@@ -110,11 +112,8 @@ function readContentFile(filePath: string): {
 	content: string
 } {
 	const rawContent = fs.readFileSync(filePath, 'utf-8')
-	const fileType = path.extname(filePath).slice(1)
-	return parseFrontmatter(
-		rawContent,
-		fileType === 'mdx' ? 'markdown' : fileType,
-	)
+	const fileType = path.extname(filePath).slice(1).toLowerCase()
+	return parseFrontmatter(rawContent, fileType)
 }
 
 /**
@@ -167,7 +166,7 @@ export function getContentFiles(dir: string = ''): string[] {
 			} else if (
 				stat.isFile() &&
 				['.json', '.yaml', '.yml', '.md', '.mdx', '.html', '.txt'].includes(
-					path.extname(item),
+					path.extname(item).toLowerCase(),
 				)
 			) {
 				const relativePath = path.relative(contentDir, fullPath)
@@ -203,23 +202,19 @@ export function getContentItem(
  */
 export function formatDate(date: string, includeRelative = false): string {
 	const currentDate = new Date()
-	if (!date.includes('T')) {
-		date = `${date}T00:00:00`
-	}
-	const targetDate = new Date(date)
+	const targetDate = new Date(date.includes('T') ? date : `${date}T00:00:00`)
 
-	const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-	const monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-	const daysAgo = currentDate.getDate() - targetDate.getDate()
+	const diffTime = currentDate.getTime() - targetDate.getTime()
+	const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 
 	let formattedDate = ''
 
-	if (yearsAgo > 0) {
-		formattedDate = `${yearsAgo}y ago`
-	} else if (monthsAgo > 0) {
-		formattedDate = `${monthsAgo}mo ago`
-	} else if (daysAgo > 0) {
-		formattedDate = `${daysAgo}d ago`
+	if (diffDays > 365) {
+		formattedDate = `${Math.floor(diffDays / 365)}y ago`
+	} else if (diffDays > 30) {
+		formattedDate = `${Math.floor(diffDays / 30)}mo ago`
+	} else if (diffDays > 0) {
+		formattedDate = `${diffDays}d ago`
 	} else {
 		formattedDate = 'Today'
 	}
@@ -230,11 +225,7 @@ export function formatDate(date: string, includeRelative = false): string {
 		year: 'numeric',
 	})
 
-	if (!includeRelative) {
-		return fullDate
-	}
-
-	return `${fullDate} (${formattedDate})`
+	return includeRelative ? `${fullDate} (${formattedDate})` : fullDate
 }
 
 /**
@@ -243,20 +234,15 @@ export function formatDate(date: string, includeRelative = false): string {
  * @returns The MIME type as a string.
  */
 export function extToType(ext: string): string {
-	switch (ext) {
-		case 'json':
-			return 'application/json'
-		case 'yaml':
-		case 'yml':
-			return 'application/x-yaml'
-		case 'md':
-		case 'mdx':
-			return 'text/markdown'
-		case 'html':
-			return 'text/html'
-		case 'txt':
-			return 'text/plain'
-		default:
-			return 'text/plain'
+	const mimeTypes: { [key: string]: string } = {
+		json: 'application/json',
+		yaml: 'application/x-yaml',
+		yml: 'application/x-yaml',
+		md: 'text/markdown',
+		mdx: 'text/markdown',
+		html: 'text/html',
+		txt: 'text/plain',
 	}
+
+	return mimeTypes[ext.toLowerCase()] || 'text/plain'
 }
