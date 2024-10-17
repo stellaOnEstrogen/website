@@ -37,6 +37,8 @@ Greetings, mortals. I am **Stella**, the Harbinger of Shadows 🦇
 - 🐦 **Twitter:** [x.com/stellerDev](/links/twitter)
 - 💀 **Discord:** [discord.gg/4t7ZsJjeeG](/links/discord)
 - 🕸️ **GitHub:** [github.com/stellaOnEstrogen](/links/github)
+- 📧 **Email:** [stellaonestrogen@gmail.com](mailto:stellaonestrogen@gmail.com)
+- 🐦 **BlueSky** [https://bsky.app/profile/puppystella.bsky.social](/links/bluesky)
 
 ## Cursed Repositories
 
@@ -57,7 +59,8 @@ Greetings, mortals. I am **Stella**, the Harbinger of Shadows 🦇
   <span class="language-badge badge-markdown">Markdown</span>
   <span class="language-badge badge-nodejs">Node.js</span>
   <span class="language-badge badge-rust">Rust</span>
-  <span class="language-badge badge-typescript">TypeScript</span>
+  <span class="language-badge badge-typescipt">TypeScript</span>
+  <span class="language-badge badge-go">GoLang</span>
 </div>
 
 ### Instruments of Torment

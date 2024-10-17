@@ -16,6 +16,11 @@ export const config: IConfig = {
 			url: 'https://x.com/stellerDev',
 			openInNewTab: true,
 		},
+    {
+      name: 'BlueSky',
+      url: 'https://bsky.app/profile/puppystella.bsky.social',
+      openInNewTab: true,
+    },
 		{
 			name: 'GitHub',
 			url: 'https://github.com/stellaOnEstrogen',

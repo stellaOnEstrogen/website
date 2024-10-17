@@ -35,7 +35,7 @@ export default function Links({ params }: Params) {
 			if (countdown === 0) {
 				clearInterval(countdownInterval)
 				if (link) {
-					window.open(link.url, '_blank')
+          window.location.href = link.url
 				}
 			}
 		}, 1000)
@@ -54,7 +54,7 @@ export default function Links({ params }: Params) {
 				{link ?
 					<div className={`flex h-screen flex-col items-center justify-center`}>
 						<p className={`text-xl`}>
-							Opening {link.name} in a new tab... (<span id="countdown">5</span>{' '}
+							Redirecting to {link.name}... (<span id="countdown">5</span>{' '}
 							seconds)
 						</p>
 					</div>
