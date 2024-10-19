@@ -44,7 +44,7 @@ export const config: IConfig = {
 	},
 	// To get the timezone, you can use the following command: node -p 'Intl.DateTimeFormat().resolvedOptions().timeZone' \\
 	timezone: 'Asia/Tokyo',
-	url: 'https://api.vtubers.tv',
+	url: 'https://www.0x7ffed9b08230.dev/',
 	frontLinks: [
 		{
 			name: 'Blog',
