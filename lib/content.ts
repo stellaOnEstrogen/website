@@ -107,10 +107,14 @@ function getContentFilesInDir(dir: string): string[] {
  * @param filePath - The path to the content file.
  * @returns An object containing the parsed metadata and content.
  */
-function readContentFile(filePath: string): {
+export function readContentFile(filePath: string): {
 	metadata: Metadata
 	content: string
 } {
+	const fileExists = fs.existsSync(filePath)
+	if (!fileExists) {
+		return { metadata: {}, content: '' }
+	}
 	const rawContent = fs.readFileSync(filePath, 'utf-8')
 	const fileType = path.extname(filePath).slice(1).toLowerCase()
 	return parseFrontmatter(rawContent, fileType)

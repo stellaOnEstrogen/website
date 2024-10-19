@@ -1,4 +1,5 @@
 import type { Timezones, Pronouns } from '@/types/Config'
+import { IconType } from '@icons-pack/react-simple-icons'
 
 export interface IConfig {
 	githubUserName: string
@@ -35,10 +36,11 @@ export interface IConfig {
 interface ISocials {
 	name: string
 	url: string
-	openInNewTab: boolean
+	icon?: IconType
 }
 
 interface ILink {
 	name: string
 	url: string
+	icon?: IconType
 }

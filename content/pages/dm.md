@@ -1,31 +1,34 @@
-Greetings, mortal souls who dare to seek communion with the Dark One... You wish to send a message into the abyss? Very well, but heed these unholy commandments, lest you incur my wrath.
+---
+---
 
-**YES!** Even I, Harbinger of Shadows, have rules for this infernal communication.
+I know this might seem odd… “You allow people to DM you openly, but you still have this rule?”
 
-It vexes me greatly when a pitiful mortal sends a mere "Hello!" into the void, only to vanish for eons! To avoid eternal damnation, follow these demonic guidelines:
+**YES!** Let me explain.
 
-You may summon me through the portals of [Discord](/links/discord) or [Twitter](/links/twitter).
+It happens *so often* where someone sends me just a “Hello!” or “Are you there?” and then… silence for hours! 😫 So, to make things easier for both of us, here are a few quick guidelines:
 
-### **THOU SHALT NOT** send these accursed messages:
-- "Hello, are you lurking in the shadows?" <And naught else>
-- "Greetings, Dark One, I seek knowledge..." <Without further elaboration>
-- "Do you have a moment to spare, O Corrupted One?" <Lacking details>
-- "Hail, Stella" <With no unholy purpose>
-- "May I inquire about the dark arts?" <Speak, fool!>
+You can DM me on [Discord](/links/discord) or [BlueSky](/links/bluesky).
 
-### **Instead, embrace the darkness and do this:**
-- Plunge into the depths of your query! I crave direct incantations such as:
-  - "O Stella, I seek guidance on summoning X in my arcane project. What forbidden knowledge can you impart?"
-  - "Dark inquiry: How dost thou navigate the treacherous waters of Y? I am ensnared by this conundrum."
-  - "I require thy infernal wisdom regarding Z. Behold the nature of my torment..."
+### Please **🚫DO NOT🚫** send messages like:
+- “Hello, are you around?” <Just that>
+- “Hi Stella, quick question…” <And nothing else>
+- “You got a sec?” <Without any details>
+- "Hey" <With nothing to follow up>
+- "Can I ask you something?" <Please, just ask it!>
+
+### **Instead, do this:**
+- Jump straight to the point! I appreciate direct questions like:
+  - “Hey Stella, I was wondering how to set up X in my project. Do you have any advice?”
+  - “Quick question: How do you handle Y situation? I’ve been struggling with this.”
+  - “I need help with Z. Here’s the issue…”
   
-Thus, I may corrupt your soul swiftly, avoiding the tedious dance of "art thou present?"
+That way, I can help you faster, and we avoid the back-and-forth of "are you there?" 🙌
 
-### Actions that shall please the Dark One:
-- If you value your mortal existence and speak with unholy haste.
-- If you offer sufficient eldritch details for me to weave my dark magic.
-- If you do not leave me waiting in the void for eons after I have graced you with a response!
+### Things that will make me *super happy*:
+- If you respect my time and get to the point.
+- If you give me enough info upfront so I can actually help.
+- If you don't leave me hanging for hours after I respond!
 
-### Additional Demonic Counsel:
-- Be mindful of the witching hour! I may not always emerge from the shadows immediately.
-- If thy question can be answered by consulting the all-seeing eye of Google, do so before summoning me.
+### Other Tips:
+- Be mindful of the time! I might not always reply immediately.
+- If it’s something that can be easily found by Googling, please try that first.

@@ -1,82 +1,38 @@
-# About the Dark One
+## 👋 Hello, World! I'm Stella! 🐾
 
-Greetings, mortals. I am **Stella**, the Harbinger of Shadows 🦇
+### Quick Facts
+- **Age**: 20  
+- **Location**: Tokyo, Japan  
+- **Nickname**: Puppy / Good Girl 
+- **Pronouns**: She/Her  
 
-## Unholy Facts
+### 💖 Passions & Interests
+- **Coding**: Always exploring new technologies and building cool stuff.
+- **Anime**: A lifelong fan who can talk about favorite series for hours.  
+- **VTubers**: Enthusiast and content creator in the VTuber space.  
+- **Open Source**: Contributor to various projects and an advocate for collaboration.
 
-- 🏴 20 cycles of the eternal night
-- 🌑 Banished from the mortal realm to the neon-lit underworld of Tokyo, Japan
-- 🐺 Known as "Hellhound" by my coven of the damned
-
-## Infernal Passions & Interests
-
-- 🕯️ Summoner of digital demons (gaming) and consumer of souls (anime)
-- 👁️ Watcher of the virtual abyss (VTubers)
-- 💀 Necromancer of code
-- 🔥 Corruptor of cybersecurity & analyst of malevolent software
-
-## Profane Professional Life
-
-- 👑 Overlord & Archdemon Developer of [VTubersTV](https://github.com/VTubersTV)
-- 🦇 Freelance conjurer specializing in:
-  - Demonic Discord Entities
-  - Portals to the Web Underworld
-  - Infernal Data Repositories
-  - Unholy Machine Learning
+### 🌐 Connect with Me
+- 🔵☁️ **BlueSky** [@stella.vtubers.tv](/links/bluesky)
+- 🥏 **Discord:** [VTubersTV Discord](/links/discord)
+- ⌨ **GitHub:** [stellaOnEstrogen](/links/github)
+- 📧 **Email:** [Click here!](mailto:stellaonestrogen@gmail.com)
 
 
-## Friends & Allies
+### 🛠️ Skills
 
-- [**Aeohlyn**](https://x.com/Aeohlyn)
-- [**Mako**](https://x.com/NDMakoTTV)
-- [**Furdox**](https://x.com/Furdox)
-- [**Kami Latte**](https://x.com/0x69002749F8)
+#### **Languages**  
+TypeScript, JavaScript, Python, HTML, CSS, C++, C, Assembly, Java, C#, Go  
 
-## Summon Me
+#### **Frameworks & Libraries**  
+React, Next.js, Express, Astro, TailwindCSS, Bootstrap, Material-UI, Flask, .NET Core, Discord.js, Nuxt.js  
 
-- 🐦 **Twitter:** [x.com/stellerDev](/links/twitter)
-- 💀 **Discord:** [discord.gg/4t7ZsJjeeG](/links/discord)
-- 🕸️ **GitHub:** [github.com/stellaOnEstrogen](/links/github)
-- 📧 **Email:** [stellaonestrogen@gmail.com](mailto:stellaonestrogen@gmail.com)
-- 🐦 **BlueSky** [https://bsky.app/profile/puppystella.bsky.social](/links/bluesky)
+#### **Tools & Technologies**  
+Git, Docker, VSCode, ESLint, Prettier, NeoVIM, Nano, GitHub Actions  
 
-## Cursed Repositories
+#### **Databases**  
+MongoDB, SQLite, MySQL  
 
-- 🏚️ [Grimoire](https://github.com/stellaOnEstrogen/dotfiles) - My arcane configuration files
-- 🧪 [Eldritch Experiments](https://github.com/stellaOnEstrogen/simulations) - Various reality-bending projects
-
-## Arsenal of the Damned
-
-### Forbidden Languages
-
-<div class="language-badges">
-  <span class="language-badge badge-bash">Bash</span>
-  <span class="language-badge badge-csharp">C#</span>
-  <span class="language-badge badge-cpp">C++</span>
-  <span class="language-badge badge-html5">HTML5</span>
-  <span class="language-badge badge-javascript">JavaScript</span>
-  <span class="language-badge badge-python">Python</span>
-  <span class="language-badge badge-markdown">Markdown</span>
-  <span class="language-badge badge-nodejs">Node.js</span>
-  <span class="language-badge badge-rust">Rust</span>
-  <span class="language-badge badge-typescipt">TypeScript</span>
-  <span class="language-badge badge-go">GoLang</span>
-</div>
-
-### Instruments of Torment
-<div class="tool-badges">
-  <span class="tool-badge badge-vscode">VS Code</span>
-  <span class="tool-badge badge-neovim">Neovim</span>
-  <span class="tool-badge badge-vim">Vim</span>
-  <span class="tool-badge badge-nano">Nano</span>
-</div>
-
-### Frameworks of the Abyss
-<div class="framework-badges">
-  <span class="framework-badge badge-astro">Astro</span>
-  <span class="framework-badge badge-bootstrap">Bootstrap</span>
-  <span class="framework-badge badge-discordjs">Discord.js</span>
-  <span class="framework-badge badge-nuxtjs">Nuxt.js</span>
-  <span class="framework-badge badge-nextjs">Next.js</span>
-  <span class="framework-badge badge-tailwind">Tailwind CSS</span>
-</div>
+### 🚀 Projects
+- **[VTubersTV](https://bsky.app/profile/vtubers.tv)**  
+   *Owner and Lead Developer*: Building a platform dedicated to VTuber content and fan interactions.

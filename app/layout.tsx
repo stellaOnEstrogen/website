@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { config } from '@/config'
-import Preloader from '@/components/preloader'
-import Cursors from '@/components/cursors'
 
 export const metadata: Metadata = {
 	title: config.name,
@@ -27,11 +25,7 @@ export default function RootLayout({
 					href={config.avatar}
 				/>
 			</head>
-			<body className={`font-sans antialiased`}>
-				<Preloader />
-				<Cursors />
-				{children}
-			</body>
+			<body className={`font-sans antialiased`}>{children}</body>
 		</html>
 	)
 }

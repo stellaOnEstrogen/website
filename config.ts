@@ -1,4 +1,5 @@
 import type { IConfig } from './interfaces/IConfig'
+import { SiGithub, SiDiscord, SiBluesky, SiGoogle } from "@icons-pack/react-simple-icons"
 
 export const config: IConfig = {
 	githubUserName: 'stellaOnEstrogen',
@@ -12,28 +13,25 @@ export const config: IConfig = {
 	name: 'Stella',
 	socials: [
 		{
-			name: 'Twitter',
-			url: 'https://x.com/stellerDev',
-			openInNewTab: true,
+			name: 'BlueSky',
+			url: 'https://bsky.app/profile/stella.vtubers.tv',
+			icon: SiBluesky,
 		},
-    {
-      name: 'BlueSky',
-      url: 'https://bsky.app/profile/puppystella.bsky.social',
-      openInNewTab: true,
-    },
 		{
 			name: 'GitHub',
 			url: 'https://github.com/stellaOnEstrogen',
-			openInNewTab: true,
+			icon: SiGithub,
 		},
 		{
 			name: 'Discord',
 			url: 'https://discord.com/users/1248626823638552701',
-			openInNewTab: true,
+			icon: SiDiscord,
 		},
 	],
 	avatar: '/me.jpg',
-	about: `I'm a Full Stack Developer with a passion for vtubers and anime. I'm currently working on a project called VtubersTV, a platform for vtubers by vtubers. (I love CottontailVA)`,
+	about: `
+		I'm a Fullstack Developer and a Software Engineer. I love to code, break things, and build things. I am the Owner and Lead Developer of VTubersTV.	
+	`,
 	components: {
 		images: {
 			enabled: false,
@@ -46,7 +44,7 @@ export const config: IConfig = {
 	},
 	// To get the timezone, you can use the following command: node -p 'Intl.DateTimeFormat().resolvedOptions().timeZone' \\
 	timezone: 'Asia/Tokyo',
-	url: 'https://www.0x7ffed9b08230.dev',
+	url: 'https://api.vtubers.tv',
 	frontLinks: [
 		{
 			name: 'Blog',
@@ -65,6 +63,11 @@ export const config: IConfig = {
 		{
 			name: 'Google',
 			url: 'https://google.com',
+			icon: SiGoogle,
+		},
+		{
+			name: 'VTubersTV',
+			url: 'https://vtubers.tv',
 		},
 	],
 }
