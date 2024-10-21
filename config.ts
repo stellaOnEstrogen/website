@@ -1,5 +1,10 @@
 import type { IConfig } from './interfaces/IConfig'
-import { SiGithub, SiDiscord, SiBluesky, SiGoogle } from "@icons-pack/react-simple-icons"
+import {
+	SiGithub,
+	SiDiscord,
+	SiBluesky,
+	SiGoogle,
+} from '@icons-pack/react-simple-icons'
 
 export const config: IConfig = {
 	githubUserName: 'stellaOnEstrogen',

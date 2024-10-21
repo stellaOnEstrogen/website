@@ -1,4 +1,4 @@
-import { LinkComponent } from '@/components/pages/links';
+import { LinkComponent } from '@/components/pages/links'
 
 type Params = {
 	params: {
@@ -7,6 +7,6 @@ type Params = {
 }
 
 export default function Links({ params }: Params) {
-	const { name } = params;
-	return <LinkComponent name={name} /> 
+	const { name } = params
+	return <LinkComponent name={name} />
 }

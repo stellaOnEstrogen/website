@@ -5,7 +5,9 @@ This is my personal website. It is built using [NextJS](https://nextjs.org?ref=g
 ## Features
 
 - **Customizable**: You can easily customize the website by editing the [`config.ts`](./config.ts) file.
-- **Dark Design**: The website is designed after Satanism, with a dark theme.
+- **Cute**: The website is cute and aesthetic.
+- **Responsive**: The website is responsive and works on all devices.
+
 
 ## Development
 

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Cherry, Heart } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -12,7 +12,7 @@ function randomizeBackground() {
 		{
 			icon: Heart,
 			color: 'text-red-300',
-		}
+		},
 	]
 
 	const MAX_ITEMS = 20
@@ -34,7 +34,6 @@ function randomizeBackground() {
 	})
 }
 
-
 export function Background() {
 	const [background, setBackground] = useState<JSX.Element[]>([])
 
@@ -42,9 +41,5 @@ export function Background() {
 		setBackground(randomizeBackground())
 	}, [])
 
-	return (
-		<>
-			{background}
-		</>
-	)
+	return <>{background}</>
 }

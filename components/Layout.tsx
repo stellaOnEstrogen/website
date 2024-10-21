@@ -1,19 +1,10 @@
 import Link from 'next/link'
-import {
-	Home,
-	User,
-	Heart,
-	Share2,
-	Github,
-	Mail
-} from 'lucide-react'
+import { Home, User, Heart, Share2, Github, Mail, Notebook } from 'lucide-react'
 import { config } from '@/config'
 import Image from 'next/image'
 import Clock from './Clock'
 import { Tooltip } from './ui/tooltip'
 import { Background } from './Background'
-
-
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
@@ -47,11 +38,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 							<User className="h-6 w-6" />
 						</Link>
 					</Tooltip>
-					<Tooltip content="Message Rules">
+					<Tooltip content="Notes">
 						<Link
-							href="/dm"
+							href="/notes"
 							className="mx-2 text-pink-600 hover:text-pink-800"
 						>
+							<Notebook className="h-6 w-6" />
+						</Link>
+					</Tooltip>
+					<Tooltip content="Message Rules">
+						<Link href="/dm" className="mx-2 text-pink-600 hover:text-pink-800">
 							<Mail className="h-6 w-6" />
 						</Link>
 					</Tooltip>

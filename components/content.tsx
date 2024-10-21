@@ -106,11 +106,10 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
 			[htmlContent],
 		)
 
-
 		if (loading) {
 			return (
 				<div className="text-center">
-					<Loader2 size={32} className="text-pink-600 animate-spin" />
+					<Loader2 size={32} className="animate-spin text-pink-600" />
 				</div>
 			)
 		}
